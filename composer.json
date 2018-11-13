@@ -1,0 +1,25 @@
+{
+    "name": "casbin/think-adapter",
+    "keywords": ["casbin", "thinkphp", "casbin-adapter", "database"],
+    "description": "Use casbin in thinkphp. ",
+    "authors": [
+        {
+            "name": "TechLee",
+            "email": "techlee@qq.com"
+        }
+    ],
+    "license": "Apache-2.0",
+    "require": {
+        "topthink/think-migration": "^2.0",
+    	"casbin/casbin": "^0.1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "CasbinAdapter\\Think\\": "src/"
+        },
+        "files": [
+            "helper.php"
+        ]
+    }
+   
+}
