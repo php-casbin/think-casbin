@@ -13,6 +13,8 @@ class CasbinRule extends Model
         //TODO:初始化内容
         $this->connection = config('casbin.database.connection') ?: '';
 
-        $this->table = config('casbin.database.casbin_rules_table');
+        $this->table = $this->connection ? config('database.'.config('casbin.database.connection').'.prefix') : config('database.prefix');
+
+        $this->table .= config('casbin.database.casbin_rules_table');
     }
 }
