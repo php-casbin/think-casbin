@@ -1,10 +1,15 @@
-# ThinkPHP-Casbin
+Think-Casbin
+====
 
-一个专为ThinkPHP5.1定制的Casbin的扩展包（ https://github.com/php-casbin/think-casbin )。
+[![Latest Stable Version](https://poser.pugx.org/casbin/think-adapter/v/stable)](https://packagist.org/packages/casbin/think-adapter)
+[![Total Downloads](https://poser.pugx.org/casbin/think-adapter/downloads)](https://packagist.org/packages/casbin/think-adapter)
+[![License](https://poser.pugx.org/casbin/think-adapter/license)](https://packagist.org/packages/casbin/think-adapter)
+
+一个专为ThinkPHP5.1定制的[Casbin](https://github.com/php-casbin/php-casbin)的扩展包（ https://github.com/php-casbin/think-casbin )。
 
 ### 安装
 
-在你的thinkphp项目里，通过`composer`安装这个扩展
+在你的`ThinkPHP`项目里，通过`composer`安装这个扩展
 
 ```
 composer require casbin/think-adapter
@@ -39,7 +44,7 @@ $obj = 'data1'; // the resource that is going to be accessed.
 $act = 'read'; // the operation that the user performs on the resource.
 
 if (true === Casbin::enforce($sub, $obj, $act)) {
-    // permit alice to read data1x
+    // permit alice to read data1
     echo 'permit alice to read data1';
 } else {
     // deny the request, show an error
