@@ -27,7 +27,7 @@ class CasbinRule extends Migrator
      */
     public function up()
     {
-        $table = $this->table(config('casbin.database.casbin_rules_table'));
+        $table = $this->table(config('casbin.database.casbin_rules_name'));
         $table->addColumn('ptype', 'string', ['null' => true])
             ->addColumn('v0', 'string', ['null' => true])
             ->addColumn('v1', 'string', ['null' => true])
@@ -40,7 +40,7 @@ class CasbinRule extends Migrator
 
     public function down()
     {
-        $table = $this->table(config('casbin.database.casbin_rules_table'));
+        $table = $this->table(config('casbin.database.casbin_rules_name'));
         $table->delete();
     }
 }

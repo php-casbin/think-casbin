@@ -23,7 +23,10 @@ return [
         // 数据库连接名称，不填为默认配置.
         'connection' => '',
 
-        // 策略表名.
-        'casbin_rules_table' => 'casbin_rule',
+        // 策略表名（不含表前缀）
+        'casbin_rules_name' => 'casbin_rule',
+
+        // 策略表完整名称.
+        'casbin_rules_table' => null,
     ],
 ];
