@@ -5,35 +5,75 @@ Think-Casbin
 [![Total Downloads](https://poser.pugx.org/casbin/think-adapter/downloads)](https://packagist.org/packages/casbin/think-adapter)
 [![License](https://poser.pugx.org/casbin/think-adapter/license)](https://packagist.org/packages/casbin/think-adapter)
 
-一个专为ThinkPHP5.1定制的[Casbin](https://github.com/php-casbin/php-casbin)的扩展包（ https://github.com/php-casbin/think-casbin )。
+[PHP-Casbin](https://github.com/php-casbin/php-casbin) 是一个强大的、高效的开源访问控制框架，它支持基于各种访问控制模型的权限管理。
+
+[Think-Casbin](https://github.com/php-casbin/think-casbin) 是一个专为ThinkPHP5.1定制的Casbin的扩展包，使开发者更便捷的在thinkphp项目中使用Casbin。
+
+### 知识储备
+
++ 熟练使用`Composer`包管理工具
++ 掌握ThinkPHP框架各个功能，例如：门面（Facade）、模型、数据库迁移工具等
++ 熟悉PHP命令行、ThinkPHP命令行的使用
++ 了解`Casbin`工作原理及用法
 
 ### 安装
 
-在你的`ThinkPHP`项目里，通过`composer`安装这个扩展
+1. 创建thinkphp项目（**如果没有**）：
+
+```
+composer create-project topthink/think tp
+```
+
+2. 在`ThinkPHP`项目里，安装`Think-Casbin`扩展：
 
 ```
 composer require casbin/think-adapter
 ```
 
-发布资源:
+3. 发布资源:
 
 ```
 php think casbin:publish
 ```
 
-这将自动创建model配置文件`config/casbin-basic-model.conf`，和Casbin的配置文件`config/casbin.php`
+这将自动创建model配置文件`config/casbin-basic-model.conf`，和Casbin的配置文件`config/casbin.php`。
 
-数据迁移:
+4. 数据迁移:
 
-执行前，请确保数据库连接信息配置正确，如需修改数据库连接信息或表名，可以修改`config/casbin.php`里的配置
+由于Think-Casbin默认将Casbin的策略（Policy）存储在数据库中，所以需要初始化数据库表信息。
+
+执行前，请**确保数据库连接信息配置正确**，如需单独修改`Casbin`的数据库连接信息或表名，可以修改`config/casbin.php`里的配置。
 
 ```
 php think casbin:migrate
 ```
 
-这将会自动创建Casbin的策略表`casbin_rule`
+这将会自动创建Casbin的策略（Policy）表`casbin_rule`。
 
 ### 用法
+
+#### 为用户分配权限
+
+```php
+use Casbin;
+
+// 给用户alice赋予对data1的read权限
+Casbin::addPolicy('alice', 'data1', 'read');
+```
+
+#### 判断是权限策略是否存在
+
+```php
+Casbin::hasPolicy('alice', 'data1', 'read'); // true
+```
+
+#### 移除权限
+
+```php
+Casbin::removePolicy('alice', 'data1', 'read');
+```
+
+#### 使用决策器，验证权限
 
 ```php
 
@@ -51,13 +91,19 @@ if (true === Casbin::enforce($sub, $obj, $act)) {
 }
 ```
 
-### 自定义配置
+#### 自定义配置
 
 `config/casbin-basic-model.conf`为Casbin的model文件
 
 `config/casbin.php`为Casbin的adapter、db配置信息
 
 
-### 关于Casbin
+### 关于
 
-Casbin官网文档 (https://casbin.org )查看更多用法。
+**Think-Casbin**：
+
++ 实现基于Think-ORM的Adapter存储（将Policy存储在数据库中）
++ 实现Casbin的门面（think\Facade）调用，使用`\Casbin::`可以静态调用`PHP-Casbin`里`Enforcer`的所有方法。
++ 使用配置文件对Casbin的Model、Adapter的可配置化
+
+通过Casbin官网 (https://casbin.org )查看更多用法。
