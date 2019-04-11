@@ -3,7 +3,6 @@
 namespace CasbinAdapter\Think;
 
 use CasbinAdapter\Think\Models\CasbinRule;
-use Casbin\Exceptions\CasbinException;
 use Casbin\Persist\Adapter as AdapterContract;
 use Casbin\Persist\AdapterHelper;
 
@@ -77,6 +76,23 @@ class Adapter implements AdapterContract
 
     public function removeFilteredPolicy($sec, $ptype, $fieldIndex, ...$fieldValues)
     {
-        throw new CasbinException('not implemented');
+        $count = 0;
+
+        $instance = $this->casbinRule->where('ptype', $ptype);
+        foreach (range(0, 5) as $value) {
+            if ($fieldIndex <= $value && $value < $fieldIndex + count($fieldValues)) {
+                if ('' != $fieldValues[$value - $fieldIndex]) {
+                    $instance->where('v'.strval($value), $fieldValues[$value - $fieldIndex]);
+                }
+            }
+        }
+
+        foreach ($instance->select() as $model) {
+            if ($model->delete()) {
+                ++$count;
+            }
+        }
+
+        return $count;
     }
 }
