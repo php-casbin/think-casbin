@@ -11,7 +11,7 @@
     "license": "Apache-2.0",
     "require": {
         "topthink/think-migration": "^2.0",
-    	"casbin/casbin": "0.*"
+    	"casbin/casbin": "1.*"
     },
     "autoload": {
         "psr-4": {
