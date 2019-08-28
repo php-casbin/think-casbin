@@ -1,6 +1,8 @@
 Think-Casbin
 ====
 
+[![Build Status](https://travis-ci.org/php-casbin/think-casbin.svg?branch=master)](https://travis-ci.org/php-casbin/think-casbin)
+[![Coverage Status](https://coveralls.io/repos/github/php-casbin/think-casbin/badge.svg)](https://coveralls.io/github/php-casbin/think-casbin)
 [![Latest Stable Version](https://poser.pugx.org/casbin/think-adapter/v/stable)](https://packagist.org/packages/casbin/think-adapter)
 [![Total Downloads](https://poser.pugx.org/casbin/think-adapter/downloads)](https://packagist.org/packages/casbin/think-adapter)
 [![License](https://poser.pugx.org/casbin/think-adapter/license)](https://packagist.org/packages/casbin/think-adapter)

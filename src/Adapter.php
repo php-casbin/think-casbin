@@ -36,7 +36,9 @@ class Adapter implements AdapterContract
         $rows = $this->casbinRule->select()->toArray();
 
         foreach ($rows as $row) {
-            $line = implode(', ', array_slice(array_values($row), 1));
+            $line = implode(', ', array_filter(array_slice($row, 1), function ($val) {
+                return '' != $val && !is_null($val);
+            }));
             $this->loadPolicyLine(trim($line), $model);
         }
     }

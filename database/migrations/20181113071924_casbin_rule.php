@@ -41,6 +41,6 @@ class CasbinRule extends Migrator
     public function down()
     {
         $table = $this->table(config('casbin.database.casbin_rules_name'));
-        $table->delete();
+        $table->drop();
     }
 }
