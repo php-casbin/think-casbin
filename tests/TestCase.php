@@ -33,6 +33,8 @@ class TestCase extends BaseTestCase
 
         $app->set('console', Console::init(false));
 
+        $app->config->load(__DIR__.'/../config/casbin.php', 'casbin');
+
         $app->console->call('casbin:publish');
 
         return $app;
