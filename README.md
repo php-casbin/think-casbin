@@ -11,6 +11,8 @@ Think-Casbin
 
 [Think-Casbin](https://github.com/php-casbin/think-casbin) 是一个专为ThinkPHP5.1定制的Casbin的扩展包，使开发者更便捷的在thinkphp项目中使用Casbin。
 
+> 针对 ThinkPHP6.0 现在推出了更加强大的扩展 [ThinkPHP 6.0 Authorization](https://github.com/php-casbin/think-authz).
+
 ### 知识储备
 
 + 熟练使用`Composer`包管理工具
@@ -99,6 +101,10 @@ if (true === Casbin::enforce($sub, $obj, $act)) {
 
 `config/casbin.php`为Casbin的adapter、db配置信息
 
+#### 更多API参考
+
+- [Management API](https://casbin.org/docs/en/management-api)
+- [RBAC API](https://casbin.org/docs/en/management-api)
 
 ### 关于
 
