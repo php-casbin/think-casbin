@@ -104,7 +104,7 @@ if (true === Casbin::enforce($sub, $obj, $act)) {
 #### 更多API参考
 
 - [Management API](https://casbin.org/docs/en/management-api)
-- [RBAC API](https://casbin.org/docs/en/management-api)
+- [RBAC API](https://casbin.org/docs/en/rbac-api)
 
 ### 关于
 
