@@ -25,7 +25,7 @@ Think-Casbin
 1. 创建thinkphp项目（**如果没有**）：
 
 ```
-composer create-project topthink/think tp
+composer create-project topthink/think=5.1.* tp5
 ```
 
 2. 在`ThinkPHP`项目里，安装`Think-Casbin`扩展：
