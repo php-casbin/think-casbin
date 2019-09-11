@@ -1,6 +1,6 @@
 {
     "name": "casbin/think-adapter",
-    "keywords": ["casbin", "thinkphp", "casbin-adapter", "database"],
+    "keywords": ["casbin", "thinkphp", "casbin-adapter", "permission", "rbac", "acl"],
     "description": "Use casbin in thinkphp. ",
     "authors": [
         {
@@ -10,13 +10,14 @@
     ],
     "license": "Apache-2.0",
     "require": {
-        "topthink/think": "5.1.*",
+        "topthink/framework": "5.1.*",
         "topthink/think-migration": "^2.0",
-    	"casbin/casbin": "1.*"
+    	"casbin/casbin": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.7|~6.0|~7.0",
-        "php-coveralls/php-coveralls": "^2.1"        
+        "php-coveralls/php-coveralls": "^2.1",
+        "topthink/think": "5.1.*"   
     },
     "autoload": {
         "psr-4": {
