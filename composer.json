@@ -33,5 +33,11 @@
             "think\\": "vendor/topthink/framework/library/think/",
             "traits\\": "vendor/topthink/framework/library/traits/"
         }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
     }
 }
