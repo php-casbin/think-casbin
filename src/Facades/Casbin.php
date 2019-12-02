@@ -34,9 +34,7 @@ class Casbin extends Facade
         if (!Container::getInstance()->has('casbin')) {
             Container::getInstance()->bindTo('casbin', function () {
                 $adapter = config('casbin.adapter');
-
                 $configType = config('casbin.model.config_type');
-
                 $model = new Model();
                 if ('file' == $configType) {
                     $model->loadModel(config('casbin.model.config_file_path'));
@@ -47,7 +45,6 @@ class Casbin extends Facade
                 return new Enforcer($model, app($adapter));
             });
         }
-
         return 'casbin';
     }
 }
