@@ -45,6 +45,7 @@ class Casbin extends Facade
                 return new Enforcer($model, app($adapter));
             });
         }
+
         return 'casbin';
     }
 }
