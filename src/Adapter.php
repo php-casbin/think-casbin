@@ -36,6 +36,10 @@ class Adapter implements AdapterContract
         $rows = $this->casbinRule->select()->toArray();
 
         foreach ($rows as $row) {
+            if(is_object($row) && method_exists($row, 'toArray')){
+                $row= $row->toArray();
+            }
+            
             $line = implode(', ', array_filter(array_slice($row, 1), function ($val) {
                 return '' != $val && !is_null($val);
             }));
