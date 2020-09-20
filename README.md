@@ -54,6 +54,21 @@ php think casbin:migrate
 
 这将会自动创建Casbin的策略（Policy）表`casbin_rule`。
 
+5. 添加测试数据:
+
+在命令行中输入：
+
+```
+php think seed:run
+```
+当你看到如下提示时，说明迁移脚本已经启动并在lin_user表中创建了一条记录
+```
+ == CasbinRuleSeeder: seeding
+ == CasbinRuleSeeder: seeded 2.5896s
+
+All Done. Took 2.6812s
+```
+
 ### 用法
 
 #### 为用户分配权限
