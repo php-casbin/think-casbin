@@ -61,7 +61,7 @@ php think casbin:migrate
 ```
 php think seed:run
 ```
-当你看到如下提示时，说明迁移脚本已经启动并在lin_user表中创建了一条记录
+当你看到如下提示时，说明迁移脚本已经启动并在`casbin_rule`表中创建了多条测试数据记录
 ```
  == CasbinRuleSeeder: seeding
  == CasbinRuleSeeder: seeded 2.5896s
